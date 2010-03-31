@@ -1,0 +1,46 @@
+Installation
+============
+
+Based on the instructions from http://github.com/facebook/three20/
+
+1. Clone the appstatus-iphone git repository: `git clone git://github.com/koke/appstatus-iphone.git`.  Make sure 
+   you store the repository in a permanent place because Xcode will need to reference the files
+   every time you compile your project.
+
+2. Drag appstatus.xcodeproj and drop it onto the root of your Xcode project's "Groups and Files"  sidebar.  
+
+3. Now you need to link the appstatus static library to your project.  Click the "appstatus.xcodeproj" 
+   item that has just been added to the sidebar.  Under the "Details" table, you will see a single
+   item: libappstatus.a.  Check the checkbox on the far right of libappstatus.a.
+
+5. Now you need to add the interface to your app.  Locate "ASReportController.xib" and drag and drop it into your project. 
+
+6. Finally, we need to tell your project where to find the Three20 headers.  Open your
+   "Project Settings" and go to the "Build" tab. Look for "Header Search Paths" and double-click
+   it.  Add the relative path from your project's directory to the "appstatus-iphone" directory.
+
+8. You're ready to go.  Just #import "ASReportController.h" anywhere you want to use appstatus reporter
+   in your project
+
+Usage
+=====
+
+First, make sure you followed the installation steps and imported the header file
+
+    #import "ASReportController.h"
+
+To launch the report controller, use this
+
+    // Cause can be one of: 
+    //   ASReportCauseUnknown
+    //   ASReportCauseServerConnect
+    //   ASReportCauseDataParse
+    //   ASReportCauseCustom
+    ASReportController *reportController = [[ASReportController alloc] initWithCause:ASReportCauseUnknown];
+    reportController.details = @"details about this particular error";
+
+    // In this case, our parent controller is a UINavigationController, 
+    // but any UIViewController will take presentModalViewController
+    [[self parentViewController] presentModalViewController:reportController animated:YES];
+
+And you're done
