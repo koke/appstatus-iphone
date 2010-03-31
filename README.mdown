@@ -9,9 +9,15 @@ Based on the instructions from http://github.com/facebook/three20/
 
 2. Drag appstatus.xcodeproj and drop it onto the root of your Xcode project's "Groups and Files"  sidebar.  
 
-3. Now you need to link the appstatus static library to your project.  Click the "appstatus.xcodeproj" 
-   item that has just been added to the sidebar.  Under the "Details" table, you will see a single
-   item: libappstatus.a.  Check the checkbox on the far right of libappstatus.a.
+3. Now you need to link the appstatus static library to your project. Click the
+"appstatus.xcodeproj" item that has just been added to the sidebar. Under the "Details"
+table, you will see a single item: libappstatus.a. Check the checkbox on the far right of
+libappstatus.a.
+
+4. Now you need to add appstatus as a dependency of your project, so Xcode compiles it whenever
+you compile your project. Expand the "Targets" section of the sidebar and double-click
+your application's target. Under the "General" tab you will see a "Direct Dependencies"
+section. Click the "+" button, select "appstatus", and click "Add Target".
 
 5. Now you need to add the interface to your app.  Locate "ASReportController.xib" and drag and drop it into your project. 
 
