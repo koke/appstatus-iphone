@@ -56,7 +56,7 @@
 }
 
 - (IBAction)sendReport:(id)sender {
-	NSURL *reportUrl = [NSURL URLWithString:@"http://appstatus.42foo.com/report"];
+	NSURL *reportUrl = [NSURL URLWithString:@"http://appstatus.jorgebernal.info/report"];
 	NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:
 							[[UIDevice currentDevice] uniqueIdentifier],
 							@"device_id",
